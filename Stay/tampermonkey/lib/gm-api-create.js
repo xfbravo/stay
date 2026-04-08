@@ -301,11 +301,11 @@
 
         let downloadLinkDom = document.getElementById("downloadLink");
         console.log("downloadLinkDom",url);
-        if (url.match(new RegExp("^data:image\/.*;base64,"))){ //download image directly
+        if (url.startsWith("data:") || url.startsWith("blob:")){ //download data/blob directly
             downloadLinkDom.href = url;
         }
         else{
-            downloadLinkDom.href = "data:application/octet-stream," + encodeURIComponent(url);
+            downloadLinkDom.href = url;
         }
 
         downloadLinkDom.download = name;
