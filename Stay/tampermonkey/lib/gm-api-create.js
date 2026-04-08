@@ -301,7 +301,7 @@
 
         let downloadLinkDom = document.getElementById("downloadLink");
         console.log("downloadLinkDom",url);
-        if (url.match(new RegExp("^(data:|blob:)"))){ //download data/blob directly
+        if (url.startsWith("data:") || url.startsWith("blob:")){ //download data/blob directly
             downloadLinkDom.href = url;
         }
         else{
